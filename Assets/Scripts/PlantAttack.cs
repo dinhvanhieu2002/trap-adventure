@@ -18,7 +18,7 @@ public class PlantAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButton(0) && cooldownTimer > attackCooldown)
+        if(cooldownTimer > attackCooldown)
         {
             Attack();
         }
