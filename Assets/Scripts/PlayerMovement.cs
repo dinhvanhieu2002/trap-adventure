@@ -1,5 +1,6 @@
  using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Animations;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -8,13 +9,12 @@ public class PlayerMovement : MonoBehaviour
     private BoxCollider2D coll;
     private SpriteRenderer sprite;
     private Animator anim;
-
+    
     [SerializeField] private LayerMask jumpaleGround;
 
     private float dirX = 0f;
     [SerializeField] private float moveSpeed = 7f;
     [SerializeField] private float jumpForce = 14f;
-
     private enum MovementState { idle, running, jumping, falling }
 
     [SerializeField] private AudioSource jumpSoundEffect;
@@ -27,6 +27,11 @@ public class PlayerMovement : MonoBehaviour
         coll = GetComponent<BoxCollider2D>();
         sprite = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
+
+        //get code from prefabPlayer
+        int playerCharacter = PlayerPrefs.GetInt("PlayerCharacter");
+        Debug.Log(playerCharacter);
+        HandlePlayerAppearence(playerCharacter);
     }
 
     // Update is called once per frame
@@ -74,5 +79,57 @@ public class PlayerMovement : MonoBehaviour
     private bool IsGrounded()
     {
         return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, jumpaleGround);
+    }
+
+
+    public void HandlePlayerAppearence(int playerCode)
+    {
+        AnimatorOverrideController overrideController = anim.runtimeAnimatorController as AnimatorOverrideController;
+
+        if (overrideController == null)
+        {
+            overrideController = new AnimatorOverrideController();
+            overrideController.runtimeAnimatorController = anim.runtimeAnimatorController;
+            anim.runtimeAnimatorController = overrideController;
+        }
+        AnimationClip animationClipDeath = Resources.Load<AnimationClip>("Animations/Players/Player_Death");
+        overrideController["Player_Death"] = animationClipDeath;
+        
+
+        // Assign the new override controller to the Animator
+        switch (playerCode)
+        {
+            case 0:
+                overrideController.runtimeAnimatorController = Resources.Load<AnimatorController>("Animations/Players/VirtualGuy/Player");
+                overrideController["Player_Falling"] = Resources.Load<AnimationClip>("Animations/Players/VirtualGuy/Player_Falling");
+                overrideController["Player_Running"] = Resources.Load<AnimationClip>("Animations/Players/VirtualGuy/Player_Running");
+                overrideController["Player_Idle"] = Resources.Load<AnimationClip>("Animations/Players/VirtualGuy/Player_Idle");
+                overrideController["Player_Jumping"] = Resources.Load<AnimationClip>("Animations/Players/VirtualGuy/Player_Jumping");
+                break;
+            case 1:
+                overrideController.runtimeAnimatorController = Resources.Load<AnimatorController>("Animations/Players/NinjaFrog/Player");
+                overrideController["Player_Falling"] = Resources.Load<AnimationClip>("Animations/Players/NinjaFrog/Player_Falling");
+                overrideController["Player_Running"] = Resources.Load<AnimationClip>("Animations/Players/NinjaFrog/Player_Running");
+                overrideController["Player_Idle"] = Resources.Load<AnimationClip>("Animations/Players/NinjaFrog/Player_Idle");
+                overrideController["Player_Jumping"] = Resources.Load<AnimationClip>("Animations/Players/NinjaFrog/Player_Jumping");
+                break;
+            case 2:
+                overrideController.runtimeAnimatorController = Resources.Load<AnimatorController>("Animations/Players/PinkMan/Player");
+                overrideController["Player_Falling"] = Resources.Load<AnimationClip>("Animations/Players/PinkMan/Player_Falling");
+                overrideController["Player_Running"] = Resources.Load<AnimationClip>("Animations/Players/PinkMan/Player_Running");
+                overrideController["Player_Idle"] = Resources.Load<AnimationClip>("Animations/Players/PinkMan/Player_Idle");
+                overrideController["Player_Jumping"] = Resources.Load<AnimationClip>("Animations/Players/PinkMan/Player_Jumping");
+                break;
+            case 3:
+                overrideController.runtimeAnimatorController = Resources.Load<AnimatorController>("Animations/Players/MaskDude/Player");
+                overrideController["Player_Falling"] = Resources.Load<AnimationClip>("Animations/Players/MaskDude/Player_Falling");
+                overrideController["Player_Running"] = Resources.Load<AnimationClip>("Animations/Players/MaskDude/Player_Running");
+                overrideController["Player_Idle"] = Resources.Load<AnimationClip>("Animations/Players/MaskDude/Player_Idle");
+                overrideController["Player_Jumping"] = Resources.Load<AnimationClip>("Animations/Players/MaskDude/Player_Jumping");
+                break;
+        }
+
+        anim.runtimeAnimatorController = overrideController;
+
     }
 }

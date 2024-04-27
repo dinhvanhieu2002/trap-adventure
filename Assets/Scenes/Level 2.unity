@@ -76281,6 +76281,30 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3901473085122956834, guid: 914e445345be4614999139721b51186f, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: e6534b8a3d3614690811883fabc267ad, type: 2}
+    - target: {fileID: 3901473085122956834, guid: 914e445345be4614999139721b51186f, type: 3}
+      propertyPath: m_CullingMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4308189188094447856, guid: 914e445345be4614999139721b51186f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -6056987297122131021, guid: 40de9a8703e2e5a47882b0b86451c741, type: 3}
+    - target: {fileID: 4433289157213349999, guid: 914e445345be4614999139721b51186f, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4433289157213349999, guid: 914e445345be4614999139721b51186f, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7839372981935094635, guid: 914e445345be4614999139721b51186f, type: 3}
+      propertyPath: newController
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 9033515395556792440, guid: 914e445345be4614999139721b51186f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.77
