@@ -7,6 +7,9 @@ public class PlayerLife : MonoBehaviour
 {
     private Animator anim;
     private Rigidbody2D rb;
+    public int maxHealth = 10;
+    public int currentHealth;
+    public HealthBar healthBar;
 
     [SerializeField] private AudioSource deathSoundEffect;
 
@@ -15,15 +18,39 @@ public class PlayerLife : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+
+        currentHealth = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
+    }
+
+    private void Update()
+    {
+        //if(currentHealth == 0)
+        //{
+        //    Die();
+        //}
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Trap"))
         {
-            Die();
+            if(currentHealth > 0)
+            {
+                TakeDamage(2);
+            } else
+            {
+                Die();
+            }
         }
     }
+
+    private void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+        healthBar.SetHealth(currentHealth);
+    }
+    
 
     private void Die()
     {
