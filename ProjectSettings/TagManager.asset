@@ -6,7 +6,11 @@ TagManager:
   tags:
   - Cherry
   - Trap
+<<<<<<< HEAD
+  - Enemy
+=======
   - BeeWithBullet
+>>>>>>> main
   layers:
   - Default
   - TransparentFX
@@ -15,7 +19,7 @@ TagManager:
   - Water
   - UI
   - Ground
-  - 
+  - Enemy
   - 
   - 
   - 

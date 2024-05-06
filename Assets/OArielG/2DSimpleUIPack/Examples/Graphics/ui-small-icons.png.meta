@@ -60,7 +60,11 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
+<<<<<<< HEAD:Assets/Pixel Adventure 1/Assets/Items/Fruits/Assets/Traps/Fire/On (16x32).png.meta
+  spritePixelsToUnits: 16
+=======
   spritePixelsToUnits: 1
+>>>>>>> main:Assets/OArielG/2DSimpleUIPack/Examples/Graphics/ui-small-icons.png.meta
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
