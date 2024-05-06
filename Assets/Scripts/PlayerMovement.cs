@@ -105,6 +105,7 @@ public class PlayerMovement : MonoBehaviour
                 overrideController["Player_Running"] = Resources.Load<AnimationClip>("Animations/Players/VirtualGuy/Player_Running");
                 overrideController["Player_Idle"] = Resources.Load<AnimationClip>("Animations/Players/VirtualGuy/Player_Idle");
                 overrideController["Player_Jumping"] = Resources.Load<AnimationClip>("Animations/Players/VirtualGuy/Player_Jumping");
+                overrideController["Player_Hit"] = Resources.Load<AnimationClip>("Animations/Players/VirtualGuy/Player_Hit");
                 break;
             case 1:
                 overrideController.runtimeAnimatorController = Resources.Load<AnimatorController>("Animations/Players/NinjaFrog/Player");
@@ -112,6 +113,7 @@ public class PlayerMovement : MonoBehaviour
                 overrideController["Player_Running"] = Resources.Load<AnimationClip>("Animations/Players/NinjaFrog/Player_Running");
                 overrideController["Player_Idle"] = Resources.Load<AnimationClip>("Animations/Players/NinjaFrog/Player_Idle");
                 overrideController["Player_Jumping"] = Resources.Load<AnimationClip>("Animations/Players/NinjaFrog/Player_Jumping");
+                overrideController["Player_Hit"] = Resources.Load<AnimationClip>("Animations/Players/VirtualGuy/Player_Hit");
                 break;
             case 2:
                 overrideController.runtimeAnimatorController = Resources.Load<AnimatorController>("Animations/Players/PinkMan/Player");
@@ -119,6 +121,7 @@ public class PlayerMovement : MonoBehaviour
                 overrideController["Player_Running"] = Resources.Load<AnimationClip>("Animations/Players/PinkMan/Player_Running");
                 overrideController["Player_Idle"] = Resources.Load<AnimationClip>("Animations/Players/PinkMan/Player_Idle");
                 overrideController["Player_Jumping"] = Resources.Load<AnimationClip>("Animations/Players/PinkMan/Player_Jumping");
+                overrideController["Player_Hit"] = Resources.Load<AnimationClip>("Animations/Players/VirtualGuy/Player_Hit");
                 break;
             case 3:
                 overrideController.runtimeAnimatorController = Resources.Load<AnimatorController>("Animations/Players/MaskDude/Player");
@@ -126,6 +129,7 @@ public class PlayerMovement : MonoBehaviour
                 overrideController["Player_Running"] = Resources.Load<AnimationClip>("Animations/Players/MaskDude/Player_Running");
                 overrideController["Player_Idle"] = Resources.Load<AnimationClip>("Animations/Players/MaskDude/Player_Idle");
                 overrideController["Player_Jumping"] = Resources.Load<AnimationClip>("Animations/Players/MaskDude/Player_Jumping");
+                overrideController["Player_Hit"] = Resources.Load<AnimationClip>("Animations/Players/VirtualGuy/Player_Hit");
                 break;
         }
 
