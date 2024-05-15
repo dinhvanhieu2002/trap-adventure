@@ -108,6 +108,7 @@ public class BeeAttack : MonoBehaviour
         //th1: bee va cham player
         if (collision.gameObject.CompareTag("Player"))
         {
+            collision.gameObject.GetComponent<PlayerLife>().TakeDamage(2);
             hit = true;
             canReturnOriginal = false;
             canAttackDown = false;

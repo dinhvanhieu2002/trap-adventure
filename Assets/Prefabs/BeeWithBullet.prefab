@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4441120462474829445}
   m_Layer: 0
   m_Name: Bullet (4)
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -187,7 +187,7 @@ GameObject:
   - component: {fileID: 2338253578786203002}
   m_Layer: 0
   m_Name: Bullet (1)
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -359,7 +359,7 @@ GameObject:
   - component: {fileID: 7183858756845691670}
   m_Layer: 0
   m_Name: Bullet (9)
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -531,7 +531,7 @@ GameObject:
   - component: {fileID: 7880367024344135257}
   m_Layer: 0
   m_Name: Bullet (7)
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -744,7 +744,7 @@ GameObject:
   - component: {fileID: 947109478719363774}
   m_Layer: 0
   m_Name: Bullet
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1101,7 +1101,7 @@ GameObject:
   - component: {fileID: 3926355840109587329}
   m_Layer: 0
   m_Name: Bullet (8)
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1273,7 +1273,7 @@ GameObject:
   - component: {fileID: 5261943075734663121}
   m_Layer: 0
   m_Name: Bullet (2)
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1445,7 +1445,7 @@ GameObject:
   - component: {fileID: 8400949006156989677}
   m_Layer: 0
   m_Name: Bullet (3)
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1617,7 +1617,7 @@ GameObject:
   - component: {fileID: 9176653206592274708}
   m_Layer: 0
   m_Name: Bullet (5)
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1789,7 +1789,7 @@ GameObject:
   - component: {fileID: 4569155130171198994}
   m_Layer: 0
   m_Name: Bullet (6)
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

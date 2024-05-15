@@ -4,13 +4,14 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Cherry
   - Trap
-<<<<<<< HEAD
-  - Enemy
-=======
+  - Cherry
   - BeeWithBullet
->>>>>>> main
+  - Enemies
+  - Bullet
+  - HealingFruit
+  - Coin
+  - Point
   layers:
   - Default
   - TransparentFX
@@ -19,7 +20,7 @@ TagManager:
   - Water
   - UI
   - Ground
-  - Enemy
+  - Player
   - 
   - 
   - 
@@ -46,11 +47,11 @@ TagManager:
   - 
   m_SortingLayers:
   - name: Background
-    uniqueID: 226722657
+    uniqueID: 1827779601
     locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
   - name: Terrain
-    uniqueID: 1454599021
+    uniqueID: 37898467
     locked: 0

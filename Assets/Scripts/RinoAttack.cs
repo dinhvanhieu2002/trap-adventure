@@ -79,6 +79,7 @@ public class RinoAttack : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             hit = true;
+            collision.gameObject.GetComponent<PlayerLife>().TakeDamage(2);
         }
        
         dirX = 0f;
