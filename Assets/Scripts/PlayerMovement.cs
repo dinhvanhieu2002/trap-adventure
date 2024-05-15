@@ -9,15 +9,16 @@ public class PlayerMovement : MonoBehaviour
     private BoxCollider2D coll;
     private SpriteRenderer sprite;
     private Animator anim;
-    
+
     [SerializeField] private LayerMask jumpaleGround;
 
     private float dirX = 0f;
+    private bool isJumping = false;
     [SerializeField] private float moveSpeed = 7f;
     [SerializeField] private float jumpForce = 14f;
     private enum MovementState { idle, running, jumping, falling }
 
-    [SerializeField] private AudioSource jumpSoundEffect;
+    [SerializeField] private AudioClip jumpSound;
 
     private MovementState state;
     // Start is called before the first frame update
@@ -30,7 +31,6 @@ public class PlayerMovement : MonoBehaviour
 
         //get code from prefabPlayer
         int playerCharacter = PlayerPrefs.GetInt("PlayerCharacter");
-        Debug.Log(playerCharacter);
         HandlePlayerAppearence(playerCharacter);
     }
 
@@ -40,10 +40,21 @@ public class PlayerMovement : MonoBehaviour
         dirX = Input.GetAxisRaw("Horizontal");
         rb.velocity = new Vector2(dirX * moveSpeed, rb.velocity.y);
 
-        if (Input.GetButtonDown("Jump") && IsGrounded())
+        if (Input.GetButtonDown("Jump"))
         {
-            jumpSoundEffect.Play();
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            if(IsGrounded())
+            {
+                //jumpSoundEffect.Play();
+                SoundManager.instance.PlaySound(jumpSound);
+                rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+                isJumping = true;
+            } else if(isJumping)
+            {
+                SoundManager.instance.PlaySound(jumpSound);
+                rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+                isJumping = false;
+            }
+
         }
 
         updateAnimationState();
@@ -73,6 +84,7 @@ public class PlayerMovement : MonoBehaviour
             state = MovementState.falling;
         }
 
+
         anim.SetInteger("state", (int) state);
     }
 
@@ -94,7 +106,6 @@ public class PlayerMovement : MonoBehaviour
         }
         AnimationClip animationClipDeath = Resources.Load<AnimationClip>("Animations/Players/Player_Death");
         overrideController["Player_Death"] = animationClipDeath;
-        
 
         // Assign the new override controller to the Animator
         switch (playerCode)
@@ -113,7 +124,7 @@ public class PlayerMovement : MonoBehaviour
                 overrideController["Player_Running"] = Resources.Load<AnimationClip>("Animations/Players/NinjaFrog/Player_Running");
                 overrideController["Player_Idle"] = Resources.Load<AnimationClip>("Animations/Players/NinjaFrog/Player_Idle");
                 overrideController["Player_Jumping"] = Resources.Load<AnimationClip>("Animations/Players/NinjaFrog/Player_Jumping");
-                overrideController["Player_Hit"] = Resources.Load<AnimationClip>("Animations/Players/VirtualGuy/Player_Hit");
+                overrideController["Player_Hit"] = Resources.Load<AnimationClip>("Animations/Players/NinjaFrog/Player_Hit");
                 break;
             case 2:
                 overrideController.runtimeAnimatorController = Resources.Load<AnimatorController>("Animations/Players/PinkMan/Player");
@@ -121,7 +132,7 @@ public class PlayerMovement : MonoBehaviour
                 overrideController["Player_Running"] = Resources.Load<AnimationClip>("Animations/Players/PinkMan/Player_Running");
                 overrideController["Player_Idle"] = Resources.Load<AnimationClip>("Animations/Players/PinkMan/Player_Idle");
                 overrideController["Player_Jumping"] = Resources.Load<AnimationClip>("Animations/Players/PinkMan/Player_Jumping");
-                overrideController["Player_Hit"] = Resources.Load<AnimationClip>("Animations/Players/VirtualGuy/Player_Hit");
+                overrideController["Player_Hit"] = Resources.Load<AnimationClip>("Animations/Players/PinkMan/Player_Hit");
                 break;
             case 3:
                 overrideController.runtimeAnimatorController = Resources.Load<AnimatorController>("Animations/Players/MaskDude/Player");
@@ -129,7 +140,7 @@ public class PlayerMovement : MonoBehaviour
                 overrideController["Player_Running"] = Resources.Load<AnimationClip>("Animations/Players/MaskDude/Player_Running");
                 overrideController["Player_Idle"] = Resources.Load<AnimationClip>("Animations/Players/MaskDude/Player_Idle");
                 overrideController["Player_Jumping"] = Resources.Load<AnimationClip>("Animations/Players/MaskDude/Player_Jumping");
-                overrideController["Player_Hit"] = Resources.Load<AnimationClip>("Animations/Players/VirtualGuy/Player_Hit");
+                overrideController["Player_Hit"] = Resources.Load<AnimationClip>("Animations/Players/MaskDude/Player_Hit");
                 break;
         }
 

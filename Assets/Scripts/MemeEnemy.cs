@@ -74,7 +74,8 @@ public class Meme : MonoBehaviour
         //If player still in range dame him
         if (PlayerInSight())
         {
-            //playerLife.Die();
+            Debug.Log("chem");
+            playerLife.TakeDamage(2);
         }
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class FireTrap : MonoBehaviour
 {
-    [SerializeField] private float damage;
+    [SerializeField] private int damage;
 
     [Header("Firetrap Timers")]
     [SerializeField] private float activationDelay;
@@ -33,7 +33,8 @@ public class FireTrap : MonoBehaviour
             }
             if (active)
             {
-                //collision.GetComponent<PlayerLife>().Die();
+                Debug.Log("tru mau");
+                collision.GetComponent<PlayerLife>().TakeDamage(damage);
             }
         }
     }
@@ -48,13 +49,13 @@ public class FireTrap : MonoBehaviour
         yield return new WaitForSeconds(activationDelay);
         spriteRend.color = Color.white; //turn the sprite black to its initial color
         active = true;
-        anim.SetBool("Ativated", true);
+        anim.SetBool("Activated", true);
 
         //Wait until X seconds, deactivate trap and reset all variables and animatior
         yield return new WaitForSeconds(activeTime);
         active = false;
         triggered = false;
-        anim.SetBool("Ativated", false);
+        anim.SetBool("Activated", false);
     }
 
 }

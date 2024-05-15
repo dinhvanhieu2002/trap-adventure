@@ -27,6 +27,10 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if(collision.gameObject.CompareTag("Player"))
+        {
+            collision.GetComponent<PlayerLife>().TakeDamage(1);
+        }
         hit = true;
         boxCollider.enabled = false;
         anim.SetTrigger("explode");

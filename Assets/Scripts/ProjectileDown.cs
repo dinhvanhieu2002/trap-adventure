@@ -25,7 +25,7 @@ public class ProjectileDown : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            //tru1 mau'
+            collision.GetComponent<PlayerLife>().TakeDamage(1);
         }
         hit = true;
         boxCollider.enabled = false;

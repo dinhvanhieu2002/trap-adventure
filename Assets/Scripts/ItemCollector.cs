@@ -5,19 +5,16 @@ using UnityEngine;
 
 public class ItemCollector : MonoBehaviour
 {
-    private int cherries = 0;
-
-    [SerializeField] private TextMeshProUGUI cherriesText;
-    [SerializeField] private AudioSource collectionSoundEffect;
+    [SerializeField] private AudioClip collectionSound;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Cherry")) 
+        if (collision.gameObject.CompareTag("HealingFruit")) 
         {
-            collectionSoundEffect.Play();
+            //collectionSoundEffect.Play();
+            SoundManager.instance.PlaySound(collectionSound);
             Destroy(collision.gameObject);
-            cherries++;
-            cherriesText.text = "Cherries: " + cherries;
+            transform.gameObject.GetComponent<PlayerLife>().HealBlood(1);
         }
     }
 }
